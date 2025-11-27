@@ -1,0 +1,6 @@
+﻿
+function show(t){var part=document.getElementById('part'+t);var buttonshow=document.getElementById('show'+t);var buttonhide=document.getElementById('hide'+t);var show='block',hide='';var hidden=part.style.display!=show;part.style.display=hidden?show:hide;buttonshow.hidden=hidden;buttonhide.hidden=!hidden;}
+function indexit_loaded(){var lang=document.documentElement.getAttribute('lang')||'fi';var show_title,hide_title;switch(lang){case'fi':show_title='Näytä';hide_title='Piilota';break;case'sv':show_title='Visa';hide_title='Dölj';break;case'de':show_title='Zeigen';hide_title='Verstecken';break;case'en':default:show_title='Show';hide_title='Hide';}
+var divs=document.querySelectorAll("div.show");for(var i=0;i<divs.length;i++){var div=divs[i];var nr=div.getAttribute('data-nr');function addbutton(className,title){var button=document.createElement('button');button.className=className;button.innerText=title;button.id=className+nr;button.addEventListener('click',function(){show(this.parentElement.getAttribute('data-nr'))});button.hidden=className=='hide';div.appendChild(button);}
+addbutton('show',show_title);addbutton('hide',hide_title);}}
+if(document.addEventListener){document.addEventListener("DOMContentLoaded",indexit_loaded);}

@@ -1,0 +1,20 @@
+﻿
+function dynamicallyLoadScript(url,async,anonymous){var script=document.createElement("script");script.src=url;if(async)script.setAttribute('async','');if(anonymous)script.setAttribute('crossorigin','anonymous');document.head.appendChild(script);}
+dynamicallyLoadScript('/ts.js');function getCurrentScript(){var thisscript=document.currentScript;if(!thisscript){var t=document.getElementsByTagName("script");thisscript=t[t.length-1];}
+return thisscript;}
+var adscriptloaded=0;function ad(adtype){if(!window.location.href.match(/^https?:/))return;var channel=0;switch(adtype){case 1:channel=1617340981;break;case 2:channel=1342564381;break;case 3:channel=8845649887;break;case 4:channel=6486524285;break;case 5:channel=3149914502;break;case 6:channel=5252746936;break;case 7:channel=5090237708;break;}
+if(!adscriptloaded++)
+dynamicallyLoadScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2838990591950257',true,true);var ins='<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-2838990591950257 data-ad-slot=9489998780 data-ad-format=horizontal data-ad-channel='+channel+' data-full-width-responsive=true></ins>';var div=document.createElement('div');div.className='g1';div.innerHTML=ins;var newscript=document.createElement('script');newscript.textContent='(adsbygoogle=window.adsbygoogle||[]).push({});';div.appendChild(newscript);var thisscript=getCurrentScript();thisscript.parentElement.insertBefore(div,thisscript.nextSibling);}
+function htmlToElement(html){var template=document.createElement('div');html=html.trim();template.innerHTML=html;return template.firstChild;}
+function getsome(selector,classname){var p=document.querySelector(selector);var some=document.createElement("div");some.className=classname;if(p)p.parentNode.insertBefore(some,p);return some;}
+function getsome2(selectors,classname){var some;for(var i=0;i<selectors.length;i++){some=document.querySelector(selectors[i]);if(some)
+return getsome(selectors[i],classname);}}
+var a2a_config=a2a_config||{};a2a_config.locale="fi";a2a_config.thanks={postShare:false};a2a_config.track_links='ga';function addtoany(){var add=htmlToElement('\
+<div class="a2a_kit a2a_kit_size_28 a2a_default_style" data-a2a-icon-color="transparent,currentcolor">\
+<a class="a2a_button_facebook"></a>\
+<a class="a2a_button_whatsapp"></a>\
+<a class="a2a_button_email"></a>\
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>\
+</div>');var some=getsome2(['p.l','p.loppu','p.URN','p.addr'],'some rivi');if(some)some.appendChild(add);dynamicallyLoadScript("https://static.addtoany.com/menu/page.js",1);}
+if(document.addEventListener)
+document.addEventListener("DOMContentLoaded",addtoany);
